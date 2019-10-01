@@ -84,15 +84,43 @@ document.getElementById('excel-file').addEventListener('change', async (e) => {
         table.appendChild(div)
 
         let td = document.getElementsByTagName('td');
+        let tr = document.getElementsByTagName('tr');
 
-        let smthElse = Array.from(td)
-        await smthElse.forEach(async (e) => {
+        let td_array = Array.from(td)
+        let tr_array = Array.from(tr)
+        console.log(tr_array)
+        console.log(tr_array)
+
+        let new_data_array = [];
+
+        await tr_array.forEach(e => {
+            let td_collection = Array.from(e.children)
+            
+            let first_name = td_collection[0].innerHTML
+            let last_name = td_collection[1].innerHTML
+            let date_of_birth = td_collection[2].innerHTML
+
+            let push_object = {
+                fName: first_name,
+                lName: last_name,
+                DoB: date_of_birth
+            };
+            new_data_array.push(push_object)
+        })
+
+        await console.log(new_data_array)
+        let push_array = await JSON.stringify(new_data_array)
+        localStorage.setItem('data', push_array)
+        
+        await td_array.forEach(async (e) => {
             await e.addEventListener('click', function(e){
                 console.log('yup you clicked one')
                 deleteFunction(e.target)
             })
 
         })
+
+
         
     }
 })
