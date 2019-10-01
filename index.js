@@ -127,6 +127,20 @@ document.getElementById('excel-file').addEventListener('change', async (e) => {
 
 const deleteFunction = (val) => {
     val.parentElement.remove()
+
+    let data_again = localStorage.getItem('data');
+    let fetchedDtata = JSON.parse(data_again);
+    let finalData = []
+    fetchedDtata.forEach(e => {
+        if (e.fName === val.firstChild.data || e.lName === val.firstChild.data || e.DoB === val.firstChild.data){
+            console.log('this is it')
+        } else {
+            finalData.push(e)
+        }
+    })
+    dataFinal = JSON.stringify(finalData)
+    localStorage.setItem('data', dataFinal)
+
 }
 
 const fetchData = () => {
