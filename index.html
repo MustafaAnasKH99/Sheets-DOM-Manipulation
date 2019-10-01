@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>One Page Form</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="main-wrapper">
+            <span class="form-title">Form Title</span>
+            <form name="form" id="formReset">
+                <div>
+                    <label>First Name</label>
+                    <input class="text-field" type="text" name="First Name" placeholder="First Name" id="fname"required ></input>
+                </div>
+                <div>
+                    <label>Last Name</label>
+                    <input class="text-field" type="text" name="Last Name" placeholder="Last Name" id="lname"required ></input>
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input class="text-field" type="date" name="bdaymonth" class="date" id="birth" ste="4"required ></input>
+                </div>
+            </form>
+
+            <input class="button" type="submit" value="Submit" onclick="saveData()">
+            <input type="file" id="excel-file" />
+            <input id="button" type="button" id="excel-file" value="Export as Excel"/>
+            <input class="button" type="submit" value="Upload" onclick="saveDataFromSheet()">
+        
+            <table id="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                </tr>
+            </table>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

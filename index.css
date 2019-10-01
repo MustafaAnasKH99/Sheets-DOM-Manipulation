@@ -1,0 +1,6 @@
+.main-wrapper{
+    width: 700px;
+    display: grid;
+    flex-flow: row wrap;
+    margin: 0 auto;
+}
