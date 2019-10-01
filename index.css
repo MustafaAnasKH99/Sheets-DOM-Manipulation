@@ -14,6 +14,10 @@
     justify-self: center;
     align-content: center;
     text-align: center;
+    background-color: #63c2e3;
+    border: 1px solid #dddddd;
+    box-sizing: border-box;
+    padding: 8px;
 }
 
 .grid-item2{
@@ -62,3 +66,28 @@
     grid-column: 1 / 2;
     width: 400px;
 }
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 5px solid #fff;
+  }
+      
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th{
+      color: black;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #63c2e3;
+  }
