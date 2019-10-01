@@ -8,37 +8,44 @@
     
     <body>
         <div class="main-wrapper">
-            <span class="form-title">Form Title</span>
-            <form name="form" id="formReset">
-                <div>
-                    <label>First Name</label>
-                    <input class="text-field" type="text" name="First Name" placeholder="First Name" id="fname"required ></input>
-                </div>
-                <div>
-                    <label>Last Name</label>
-                    <input class="text-field" type="text" name="Last Name" placeholder="Last Name" id="lname"required ></input>
-                </div>
-                <div>
-                    <label>Date of Birth</label>
-                    <input class="text-field" type="date" name="bdaymonth" class="date" id="birth" ste="4"required ></input>
-                </div>
-            </form>
-
-            <input class="button" type="submit" value="Submit" onclick="saveData()">
-            <input type="file" id="excel-file" />
-            <input id="button" type="button" id="excel-file" value="Export as Excel"/>
-            <input class="button" type="submit" value="Upload" onclick="saveDataFromSheet()">
-        
-            <!-- <table id="table">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Date of Birth</th>
-                </tr>
-            </table> -->
-            <div id="table">
-
+            <div class="grid-item1">
+                <span class="form-title">Form Title</span>
             </div>
+
+            <div class="grid-item2">
+                <form name="form" id="formReset">
+                    <div>
+                        <label>First Name</label>
+                        <input class="text-field" type="text" name="First Name" placeholder="First Name" id="fname"required ></input>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input class="text-field" type="text" name="Last Name" placeholder="Last Name" id="lname"required ></input>
+                    </div>
+                    <div>
+                        <label>Date of Birth</label>
+                        <input class="text-field" type="date" name="bdaymonth" class="date" id="birth" ste="4"required ></input>
+                    </div>
+                </form>
+            </div>
+
+            <div class="grid-item4">
+                <label for="files" class="div-grid-item1">Upload Excel file:</label>
+                <input type="file" id="excel-file" class="button div-grid-item2"/>
+            </div>
+
+            <div class="grid-item3">
+                <input class="button" type="submit" value="Submit" onclick="saveData()">
+            </div>
+            
+            <div class="grid-item5">
+                <input class="submit-button" id="button" type="button" id="excel-file" value="Export as Excel"/>
+            </div>
+
+            <div class="grid-item6">
+                <div id="table"></div>
+            </div>
+
         </div>
 
         <script src="index.js"></script>
