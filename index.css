@@ -76,21 +76,21 @@ table {
     width: 100%;
     box-sizing: border-box;
     border: 5px solid #fff;
-  }
+}
       
-  td, th {
+td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-  }
+}
   
-  th{
-      color: black;
-  }
+th{
+    color: black;
+}
   
-  tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #63c2e3;
-  }
+}
 
 .button{
     background-color: #e14f49;

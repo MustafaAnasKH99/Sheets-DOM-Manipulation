@@ -1,6 +1,7 @@
 //Grab locally stored values
 const data = localStorage.getItem('data');
 const table = document.getElementById('table')
+const export_excel_button = document.getElementsByClassName('export-excel');
 
 const saveData = () => {
     let fName = document.getElementById('fname').value
@@ -70,14 +71,11 @@ const saveData = () => {
 
 document.getElementById('excel-file').addEventListener('change', async (e) => {
     let reader = await new FileReader();
-    console.log(reader)
     reader.readAsArrayBuffer(e.target.files[0])
     reader.onload = async (e) => {
-        console.log('reader???')
         let data = await new Uint8Array(reader.result)
         let web = await XLSX.read(data, {type: 'array'})
         let html_string = await XLSX.write(web, {Sheet: 'sheet no1', type: 'binary', bookType: 'html'})
-        console.log(html_string)
         
         let div = document.createElement('div')
         div.innerHTML = html_string
@@ -88,9 +86,6 @@ document.getElementById('excel-file').addEventListener('change', async (e) => {
 
         let td_array = Array.from(td)
         let tr_array = Array.from(tr)
-        console.log(tr_array)
-        console.log(tr_array)
-
         let new_data_array = [];
 
         await tr_array.forEach(e => {
@@ -107,21 +102,14 @@ document.getElementById('excel-file').addEventListener('change', async (e) => {
             };
             new_data_array.push(push_object)
         })
-
-        await console.log(new_data_array)
         let push_array = await JSON.stringify(new_data_array)
         localStorage.setItem('data', push_array)
         
         await td_array.forEach(async (e) => {
             await e.addEventListener('click', function(e){
-                console.log('yup you clicked one')
                 deleteFunction(e.target)
             })
-
-        })
-
-
-        
+        })        
     }
 })
 
@@ -176,3 +164,11 @@ const fetchData = () => {
 }
 
 fetchData()
+
+
+export_excel_button[0].addEventListener('click', async (e) => {
+    let table = document.getElementById('table')
+    let web = await XLSX.utils.table_to_book(table, {Sheet: 'Sheet JS'})
+    let excel_file = XLSX.write(web, {bookType: 'xlsx', bookSST: true, type: 'binary'})
+    let final = await XLSX.writeFile(web, 'sheetjs.xlsx')
+})
