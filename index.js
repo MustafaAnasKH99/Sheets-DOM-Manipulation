@@ -22,8 +22,8 @@ const saveData = () => {
         dataFinal = JSON.stringify(fetchedData)
         localStorage.setItem('data', dataFinal)
 
-        // Save new data to the localStorage
-
+        // Save new data to the dom
+        
         let tr = document.createElement('tr')
         let td1 = document.createElement('td');
         let txt1 = document.createTextNode(values.fName)
